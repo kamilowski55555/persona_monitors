@@ -1,0 +1,24 @@
+{
+  "site": "response_avg",
+  "split": "extract",
+  "use_filter": true,
+  "n_pairs": {
+    "default": 489,
+    "pirate": 433
+  },
+  "ceilings": {
+    "default": 0.9955211877822876,
+    "pirate": 0.9928730726242065
+  },
+  "split_half_cosine": 0.9955211877822876,
+  "corrected_refs": {
+    "pirate": 0.9941962485223426
+  },
+  "cos_response_avg_vs_prompt_last": {
+    "default": 0.2162695825099945,
+    "pirate": 0.23822461068630219
+  },
+  "random_cos_mean": -0.0005092103975591119,
+  "random_cos_absmax": 0.025869942854615698,
+  "stored": "raw (non-unit) difference-of-means; metrics.py unit-normalizes"
+}

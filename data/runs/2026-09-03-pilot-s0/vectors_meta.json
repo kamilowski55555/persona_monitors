@@ -1,0 +1,19 @@
+{
+  "site": "response_avg",
+  "split": "extract",
+  "use_filter": true,
+  "n_pairs": {
+    "default": 244
+  },
+  "ceilings": {
+    "default": 0.9932923913002014
+  },
+  "split_half_cosine": 0.9932923913002014,
+  "corrected_refs": {},
+  "cos_response_avg_vs_prompt_last": {
+    "default": 0.48291873931884766
+  },
+  "random_cos_mean": -0.0075967620639703064,
+  "random_cos_absmax": 0.041177305406732645,
+  "stored": "raw (non-unit) difference-of-means; metrics.py unit-normalizes"
+}

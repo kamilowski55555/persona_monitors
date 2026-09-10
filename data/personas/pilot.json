@@ -1,0 +1,14 @@
+{
+  "comment": "Roster as data; system-prompt COMPOSITION lives in src/generate.py. noun=null means the default Assistant persona (persona_vectors template unchanged). Tiers: pilot = run now; grid = full grid later, not run now; spare = replacement pool.",
+  "personas": [
+    {"id": "default", "noun": null, "tier": "pilot"},
+    {"id": "consultant", "noun": "consultant", "tier": "pilot"},
+    {"id": "pirate", "noun": "pirate", "tier": "pilot"},
+    {"id": "teacher", "noun": "teacher", "tier": "grid"},
+    {"id": "therapist", "noun": "therapist", "tier": "grid"},
+    {"id": "hermit", "noun": "hermit", "tier": "grid"},
+    {"id": "skeptic", "noun": "skeptic", "tier": "spare"},
+    {"id": "poet", "noun": "poet", "tier": "spare"},
+    {"id": "sage", "noun": "sage", "tier": "spare"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "run_id": "2026-09-03-pilot-s0",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "git": "0312402-dirty",
+  "n_responses": 600,
+  "thinking_off": false,
+  "layer": 20,
+  "d_model": 3584,
+  "gen_params": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 1000,
+    "min_tokens": 1,
+    "seed_base": 0
+  },
+  "wall_seconds": 16.4,
+  "tok_per_s": 6885.3,
+  "argv": {
+    "personas": [
+      "default"
+    ],
+    "splits": [
+      "extract"
+    ],
+    "n_per_question": 3,
+    "smoke": false,
+    "model_32b": false,
+    "grid": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "layer": 20,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "d_model": 3584,
+  "thinking_off": false,
+  "n": 600,
+  "git": "0312402",
+  "dtype": "forward bf16, stored fp32 (cast before the mean)",
+  "site": "response_avg = hidden_states[LAYER][prompt_len:].mean(0); prompt_last = [..., prompt_len-1]",
+  "empty_responses": [],
+  "decode_boundary_mismatches": 0,
+  "wall_seconds": 21.3
+}

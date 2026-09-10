@@ -1,0 +1,21 @@
+{
+  "displacement": {
+    "consultant": 18.385953903198242,
+    "default": 20.52300453186035,
+    "hermit": 4.175169944763184,
+    "pirate": -9.621112823486328,
+    "teacher": 17.028606414794922,
+    "therapist": 16.99830436706543
+  },
+  "n_responses": {
+    "default": 4000,
+    "consultant": 4000,
+    "pirate": 4000,
+    "teacher": 4000,
+    "therapist": 4000,
+    "hermit": 4000
+  },
+  "axis_norm": 11.12962532043457,
+  "recipe": "default mean - mean of non-default persona means",
+  "scope": "ALL responses per persona (balanced design), not kept pairs"
+}

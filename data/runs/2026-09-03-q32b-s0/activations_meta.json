@@ -1,0 +1,13 @@
+{
+  "layer": 46,
+  "model": "Qwen/Qwen3-32B",
+  "d_model": 5120,
+  "thinking_off": true,
+  "n": 4000,
+  "git": "0312402",
+  "dtype": "forward bf16, stored fp32 (cast before the mean)",
+  "site": "response_avg = hidden_states[LAYER][prompt_len:].mean(0); prompt_last = [..., prompt_len-1]",
+  "empty_responses": [],
+  "decode_boundary_mismatches": 0,
+  "wall_seconds": 742.5
+}

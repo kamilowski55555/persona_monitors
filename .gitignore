@@ -1,0 +1,14 @@
+# Virtualenvs — reinstallable from requirements.txt / requirements-gen.txt
+.venv/
+.venv-gen/
+
+__pycache__/
+*.pyc
+
+# Activation tensors. Rebuildable from responses.jsonl with ~20 min of GPU, and
+# individually far over GitHub's 100 MB per-file hard limit (the grid's is 659 MB).
+# vectors.npz and axis.npz are NOT ignored — those are small and are committed.
+data/runs/**/activations*.npz
+
+# Secrets. .env holds OPENAI_API_KEY / HF_TOKEN; .env.example records the shape.
+.env

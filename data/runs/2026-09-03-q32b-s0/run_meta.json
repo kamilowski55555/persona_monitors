@@ -1,0 +1,26 @@
+{
+  "run_id": "2026-09-03-q32b-s0",
+  "model": "Qwen/Qwen3-32B",
+  "git": "0312402-dirty",
+  "n_responses": 4000,
+  "thinking_off": true,
+  "layer": 46,
+  "d_model": 5120,
+  "gen_params": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 1000,
+    "min_tokens": 1,
+    "seed_base": 0
+  },
+  "wall_seconds": 568.1,
+  "tok_per_s": 2457.5,
+  "argv": {
+    "personas": null,
+    "splits": null,
+    "n_per_question": 3,
+    "smoke": false,
+    "model_32b": true,
+    "grid": false
+  }
+}

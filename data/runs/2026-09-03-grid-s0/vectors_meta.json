@@ -1,0 +1,40 @@
+{
+  "site": "response_avg",
+  "split": "extract",
+  "use_filter": true,
+  "n_pairs": {
+    "consultant": 882,
+    "default": 816,
+    "hermit": 958,
+    "pirate": 744,
+    "teacher": 851,
+    "therapist": 818
+  },
+  "ceilings": {
+    "consultant": 0.9971819519996643,
+    "default": 0.9986019730567932,
+    "hermit": 0.9983193278312683,
+    "pirate": 0.9944299459457397,
+    "teacher": 0.9987720251083374,
+    "therapist": 0.9975154995918274
+  },
+  "split_half_cosine": 0.9986019730567932,
+  "corrected_refs": {
+    "consultant": 0.9978917099382524,
+    "hermit": 0.9984606404425945,
+    "pirate": 0.9965137761657769,
+    "teacher": 0.9986869954631004,
+    "therapist": 0.998058588484229
+  },
+  "cos_response_avg_vs_prompt_last": {
+    "consultant": 0.47705140709877014,
+    "default": 0.4892732501029968,
+    "hermit": 0.48724254965782166,
+    "pirate": 0.43243932723999023,
+    "teacher": 0.4715794026851654,
+    "therapist": 0.48590853810310364
+  },
+  "random_cos_mean": -0.009680191580117849,
+  "random_cos_absmax": 0.01849831389583185,
+  "stored": "raw (non-unit) difference-of-means; metrics.py unit-normalizes"
+}

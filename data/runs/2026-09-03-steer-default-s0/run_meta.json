@@ -1,0 +1,31 @@
+{
+  "run_id": "2026-09-03-steer-default-s0",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "git": "0312402-dirty",
+  "persona": "default",
+  "layer": 20,
+  "hook_module_idx": 19,
+  "positions": "response",
+  "coefs": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "v_raw_norm": 23.6035213470459,
+  "alphas": [
+    0.0,
+    11.80176067352295,
+    23.6035213470459,
+    35.40528202056885,
+    47.2070426940918,
+    70.8105640411377
+  ],
+  "n_per_question": 3,
+  "temperature": 1.0,
+  "seed": 0,
+  "source_vectors": "data/runs/2026-09-03-pilot-s0/vectors.npz",
+  "n_responses": 360
+}

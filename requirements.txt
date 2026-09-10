@@ -1,0 +1,26 @@
+# Needs Python >= 3.10 (torch 2.13.0 requires_python >=3.10; system python3 is 3.9).
+# All pins verified to exist on PyPI on 2026-08-30.
+#
+# TWO venvs (split taken 2026-09-02):
+#   .venv     — this file: measurement (verify_shapes, activations), judging, analysis
+#   .venv-gen — generation only: vllm, see requirements-gen.txt
+# Root conflict: transformers 4.57.6 needs huggingface_hub <1.0, vllm 0.28.0 needs
+# hub >=1.27 — unsatisfiable in one env. (The torch pins alone agree at 2.13.0;
+# the conflict only surfaced on full resolution — conflicts are found by RESOLVING,
+# not by inspecting single pins.)
+
+# measurement + generation-record tooling
+torch==2.13.0
+transformers==4.57.6
+accelerate==1.14.0
+numpy==1.26.4
+tqdm==4.70.0
+huggingface_hub==0.36.2
+
+# needed by the next modules (judge, metrics, plots) — not by verify_shapes.py
+scikit-learn==1.9.0
+pandas==2.0.3
+matplotlib==3.11.1
+openai==2.50.0
+python-dotenv==1.2.2
+

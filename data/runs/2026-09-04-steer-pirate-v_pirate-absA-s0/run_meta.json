@@ -1,0 +1,33 @@
+{
+  "run_id": "2026-09-04-steer-pirate-v_pirate-absA-s0",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "git": "",
+  "persona": "pirate",
+  "layer": 20,
+  "hook_module_idx": 19,
+  "positions": "response",
+  "vector_key": "v_pirate",
+  "abs_alpha_mode": true,
+  "coefs": [
+    0.0,
+    0.9133238791458399,
+    1.8343877911657969,
+    2.7477116703116367,
+    3.6610355494574764
+  ],
+  "v_raw_norm": 12.919841766357422,
+  "alphas": [
+    0.0,
+    11.8,
+    23.7,
+    35.5,
+    47.3
+  ],
+  "n_per_question": 3,
+  "temperature": 1.0,
+  "seed": 0,
+  "source_vectors": "data/runs/2026-09-03-grid-s0/vectors.npz",
+  "n_responses": 300,
+  "note": "Executed on a separate single-A100 cloud machine, not the cluster used for the other runs — hence the empty git field. Only vectors.npz was shipped to it; source_vectors traces to the canonical grid run. Integrity verified on import: 300 responses = 5 alphas x 20 questions x 3 samples, 300 scored rows, 0 refusals.",
+  "hardware": "single NVIDIA A100"
+}

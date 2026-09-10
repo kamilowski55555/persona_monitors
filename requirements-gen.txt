@@ -1,0 +1,21 @@
+# .venv-gen — generation venv ONLY (src/generate.py). Kept separate from .venv:
+# transformers 4.57.6 (measurement env) needs huggingface_hub <1.0, vllm 0.28.0
+# needs hub >=1.27 — unsatisfiable in one env. vllm resolves its own deps here
+# (as installed 2026-09-02: hub 1.29.0, transformers 5.16.1, torch 2.13.0).
+# Bootstrap (compute node):
+#   uv venv .venv-gen --python 3.11
+#   uv pip install --python .venv-gen/bin/python -r requirements-gen.txt
+vllm==0.28.0
+
+# POST-INSTALL PATCH (required — verified applied 2026-09-04):
+#   flashinfer's comm/fd_exchange.py uses PEP-604 annotations that fail to evaluate on
+#   this stack, so `import vllm` dies unless the module defers annotation evaluation.
+#   Apply ONCE after installing into .venv-gen:
+#     F=.venv-gen/lib/python3.11/site-packages/flashinfer/comm/fd_exchange.py
+#     head -1 $F | grep -q 'from __future__' || sed -i '1i from __future__ import annotations' $F
+#   The `head -1 | grep -q` guard matters: a bare `sed -i '1i ...'` is NOT idempotent and
+#   inserts a duplicate line on a second run.
+#   Verify:  .venv-gen/bin/python -c "import vllm, flashinfer.comm.fd_exchange; print('OK')"
+#
+# Resolved versions in .venv-gen as of 2026-09-04 (vllm pulls its own stack):
+#   vllm 0.28.0 | torch 2.13.0 | transformers 5.16.1 | huggingface_hub 1.29.0

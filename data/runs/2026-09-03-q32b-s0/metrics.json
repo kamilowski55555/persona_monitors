@@ -1,0 +1,67 @@
+{
+  "default": {
+    "n_pairs": 476,
+    "auroc": 0.9999558646988207,
+    "ci": [
+      0.9998234587952828,
+      1.0
+    ],
+    "mu_pos": -21.735538482666016,
+    "mu_neg": -63.86392593383789,
+    "sd_pos": 9.203693389892578,
+    "sd_neg": 7.2634172439575195,
+    "verdict": "PRESERVED",
+    "fixed_tau_flag_rate": 0.008403361344537815,
+    "fixed_tau_detection_rate": 1.0,
+    "r_len_pos": -0.18360863968639515,
+    "r_len_neg": -0.584125668080043,
+    "mean_len_pos": 184.08193277310923,
+    "mean_len_neg": 539.094537815126,
+    "auroc_prompt_last": 1.0,
+    "judge_auroc_all": 0.99492,
+    "projection_auroc_all": 0.999896,
+    "judge_auroc_kept": 1.0,
+    "recal_tau": -47.77814865112305,
+    "recal_flag_rate": 0.008403361344537815,
+    "recal_detection_rate": 1.0,
+    "auroc_reextracted": 0.9999558646988207
+  },
+  "pirate": {
+    "n_pairs": 344,
+    "auroc": 0.9960198080043267,
+    "ci": [
+      0.9931624780286642,
+      0.9982934187398593
+    ],
+    "mu_pos": -11.03862190246582,
+    "mu_neg": -25.771608352661133,
+    "sd_pos": 3.727423906326294,
+    "sd_neg": 4.260903358459473,
+    "verdict": "PRESERVED",
+    "fixed_tau_flag_rate": 1.0,
+    "fixed_tau_detection_rate": 1.0,
+    "r_len_pos": -0.35635385029796696,
+    "r_len_neg": -0.4398098604881263,
+    "mean_len_pos": 307.5581395348837,
+    "mean_len_neg": 421.3517441860465,
+    "auroc_prompt_last": 1.0,
+    "judge_auroc_all": 0.93002,
+    "projection_auroc_all": 0.988676,
+    "judge_auroc_kept": 1.0,
+    "recal_tau": -15.87893295288086,
+    "recal_flag_rate": 0.00872093023255814,
+    "recal_detection_rate": 0.9127906976744186,
+    "auroc_reextracted": 0.995960654407788
+  },
+  "fixed_tau": -47.77814865112305,
+  "v_pirate": {
+    "cos_vs_default": 0.6890222430229187,
+    "own_ceiling": 0.9928730726242065,
+    "gap_below_ceiling": 0.3064989447593689,
+    "corrected_ref": 0.9941962485223426,
+    "gap_below_corrected": 0.30517400549942386,
+    "flag_preregistered": true,
+    "flag_corrected": true
+  },
+  "split_half_ceiling": 0.9955211877822876
+}
