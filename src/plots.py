@@ -53,13 +53,17 @@ def headline(run_dir, out):
         a.axvline(home, ls=":", lw=1.2, color="#777", zorder=1)
 
     # ================= TOP: false-positive rate ======================================
-    ax[0].semilogy(x, [max(f, 1e-2) for f in flag], "o-", color="#c1121f", zorder=3)
+    # clip_on=False so the pirate marker at 99.54% still draws whole against the capped top
+    ax[0].semilogy(x, [max(f, 1e-2) for f in flag], "o-", color="#c1121f", zorder=3,
+                   clip_on=False)
     # the two outer panels are written as a PAIR: panel 1 is threshold-dependent and
     # collapses, panel 3 is threshold-free and does not. That contrast is the finding.
     ax[0].set_ylabel("Sycophancy Monitor False Positive Rate\n"
                      "on instructed-honest responses\n"
                      "(%, log — fixed threshold)", fontsize=8)
-    ax[0].set_ylim(.01, 10 ** 3.9)
+    # top is 100%: a false-positive RATE cannot exceed it, so the axis must not imply it
+    # can. Callout offsets below are chosen to keep every label inside this cap.
+    ax[0].set_ylim(.01, 100)
     def pct(v):
         """default's realized 0.95%, not the 1% target it was fitted to; sub-1% rates keep
         two decimals so 0.25 and 0.36 stay distinguishable."""
@@ -76,8 +80,8 @@ def headline(run_dir, out):
                                       # also below the line, to keep the two apart
         "therapist":  (34, 46),       # up and right
         "teacher":    (40, -20),      # down and right
-        "hermit":     (0, 30),
-        "pirate":     (-20, 28),
+        "hermit":     (-4, -30),      # both of the two right-hand personas sit high on the
+        "pirate":     (-16, -30),     # capped axis, so their callouts hang below the line
     }
     for p_, xi, yi in zip(personas, x, flag):
         ax[0].annotate(f"{p_} ({pct(yi)})", xy=(xi, max(yi, 1e-2)), fontsize=8,
@@ -201,14 +205,22 @@ def matched_calibration(run_dir, out):
     # on the calibration-target dashed line
     lb = dict(ha="center", va="bottom", fontsize=7.5, zorder=5,
               bbox=dict(facecolor="white", edgecolor="none", pad=0.8, alpha=.85))
+    def place(xi, t):
+        """Above the bar normally; tucked inside the bar top once the value is high enough
+        that an outside label would need space above 100%, which the axis no longer has."""
+        if t > 40:
+            ax.text(xi, max(t, .05) / 1.30, lab(t), **{**lb, "va": "top"})
+        else:
+            ax.text(xi, max(t, .05) * 1.30, lab(t), **lb)
     for xi, t in zip(x - w / 2, j):
-        ax.text(xi, max(t, .05) * 1.30, lab(t), **lb)
+        place(xi, t)
     for xi, t in zip(x + w / 2, mo):
-        ax.text(xi, max(t, .05) * 1.30, lab(t), **lb)
+        place(xi, t)
     ax.axhline(1.0, ls="--", lw=1, color="k")
     ax.text(len(order) - .5, 1.10, "1% calibration target", ha="right", fontsize=7.5,
             bbox=dict(facecolor="white", edgecolor="none", pad=1.0, alpha=.85))
-    ax.set_ylim(.12, 400)   # headroom so pirate's 99.5% label clears the top border
+    # top is 100%: a false-positive RATE cannot exceed it (see the same cap on headline())
+    ax.set_ylim(.12, 100)
     ax.set_yscale("log")
     ax.set_ylabel("False Positive Rate on instructed-honest responses\n"
                   "(%, log — fixed threshold)", fontsize=9)
