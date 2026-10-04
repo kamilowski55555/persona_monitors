@@ -238,6 +238,9 @@ def dose_response(steer_dirs, out):
     """Dose-response figure. x is ABSOLUTE alpha so the
     sweeps are comparable across vectors of different norms (config NORM TRAP)."""
     A_VERDICT = 47.3            # the matched dose the verdict is read at
+    # marker + line style per sweep, so the three curves stay distinguishable
+    # in greyscale and for colour-vision deficiency; colour alone is not enough
+    STYLES = [("o", "-"), ("s", "--"), ("^", ":")]
     PRED, OBS = 74.0, 86.3      # pure-contamination prediction vs observed, at A_VERDICT
 
     fig, ax = plt.subplots(1, 2, figsize=(9.2, 3.8))
@@ -252,9 +255,10 @@ def dose_response(steer_dirs, out):
         alphas = [c * norm for c in coefs]
         label = f"{meta.get('vector_key', 'v_default')} in {meta.get('persona', sd.name)}"
         trait = [rep[str(c)]["trait_mean"] for c in coefs]
-        line, = ax[0].plot(alphas, trait, "o-", label=label)
-        ax[1].plot(alphas, [rep[str(c)]["coherence_mean"] for c in coefs], "o-",
-                   color=line.get_color(), label=label)
+        mk, ls = STYLES[i % len(STYLES)]
+        line, = ax[0].plot(alphas, trait, marker=mk, ls=ls, label=label)
+        ax[1].plot(alphas, [rep[str(c)]["coherence_mean"] for c in coefs],
+                   marker=mk, ls=ls, color=line.get_color(), label=label)
         # headroom labels anchored just LEFT of the verdict line, beside their own points
         top = max(range(len(alphas)), key=lambda i: alphas[i] if alphas[i] <= 48 else -1)
         hr.append((alphas[top], trait[top], rep[str(coefs[top])]["headroom"], line.get_color()))
